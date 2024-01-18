@@ -1,7 +1,9 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import AddPost from "./pages/AddPost";
+import Header from "./components/header/Header";
 import Home from "./pages/Home";
+import Footer from "./components/footer/Footer";
 import NotFound from "./pages/NotFound";
 import Post from "./pages/Post";
 import User from "./pages/User";
@@ -11,12 +13,7 @@ const App = () => {
   return (
     <>
       <div>
-        <div className="linkContainer">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/post">Posts</Link>
-          <Link to="/add-post">Add Posts</Link>
-        </div>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -25,6 +22,7 @@ const App = () => {
           <Route path="/user" element={<User />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );
