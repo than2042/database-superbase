@@ -1,0 +1,35 @@
+.formContainer {
+  width: 80%;
+  margin: 1.5rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.2rem;
+}
+
+input {
+  width: 40%;
+  height: 2.7rem;
+  border-radius: 1rem;
+  border: 2px solid #6a5d53;
+  padding: 1rem;
+  margin-left: 3rem;
+}
+
+button {
+  width: 11rem;
+  height: 3rem;
+  margin-left: 9rem;
+  margin-top: 2rem;
+  background: #b7baf4;
+  box-shadow: 0 0 0 0.7em #0db9ed;
+}
+
+button:hover {
+  background: #646cff;
+  color: #f0ffff;
+}

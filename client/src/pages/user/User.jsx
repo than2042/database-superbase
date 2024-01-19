@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import Form from "../components/form/Form";
+import Form from "../../components/form/Form";
+import "./User.css";
 
 const User = () => {
-  let APIURL = "http://localhost:8080/users";
+  const APIURL = "http://localhost:8080/users";
   const [getUser, setGetUser] = useState([]);
   const [formData, setFromData] = useState({
     name: "",
@@ -56,14 +57,16 @@ const User = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>This is User</h1>
+    <div className="container">
+      <img src="./images/water.webp" alt="water" />
+      <div className="userForm">
+        <h2 className="userPost">Join Blog Post!!!</h2>
         <Form
           handleSubmit={handleSubmit}
           fields={fields}
           btnText="Submit"
           handleChange={handleChange}
+          className="formlabel"
         />
       </div>
     </div>

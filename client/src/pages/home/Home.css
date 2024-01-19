@@ -1,0 +1,40 @@
+.homeContainer {
+  margin: 0;
+}
+
+img,
+.homeImage {
+  width: 100%;
+  height: 47.8rem;
+}
+
+.heroText {
+  position: absolute;
+  top: 22rem;
+  width: 35rem;
+  padding: 0 2rem;
+  margin: 3rem;
+  opacity: 1;
+  line-height: 2rem;
+}
+
+.createPost {
+  margin-bottom: 1rem;
+  color: #f0f8ff;
+}
+
+.description {
+  color: #f0f8ff;
+}
+
+.circle {
+  width: 15rem;
+  height: 15rem;
+  border: 1rem solid #646cff;
+  border-radius: 50%;
+  position: absolute;
+  top: 20rem;
+  left: 55rem;
+  box-shadow: inset 0 -3em 1em rgb(0 200 0 / 30%), 0 0 0 2px #ffffff,
+    0.3em 0.3em 2em rgba(245, 95, 8, 0.922);
+}

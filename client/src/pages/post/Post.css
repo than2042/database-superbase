@@ -1,0 +1,24 @@
+.post {
+  /* background: #f0f8ff; */
+  height: 47rem;
+}
+.postContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.postItem {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin: 2rem auto;
+}
+
+.card {
+  width: 20vw;
+  height: 15vh;
+  padding: 1rem;
+}

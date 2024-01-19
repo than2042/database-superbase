@@ -1,0 +1,11 @@
+.userForm {
+  position: absolute;
+  top: 15rem;
+  width: 100%;
+}
+
+.userPost {
+  position: relative;
+  left: 12.5%;
+  margin-bottom: 3rem;
+}

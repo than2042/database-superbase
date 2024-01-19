@@ -1,0 +1,19 @@
+.addPost {
+  display: flex;
+}
+
+.addImage {
+  width: 45%;
+  border-radius: 0 10rem 0 15rem;
+}
+
+.addContainer {
+  width: 50%;
+  margin-top: 3rem;
+}
+
+.addText {
+  position: relative;
+  left: 15%;
+  margin-bottom: 3rem;
+}

@@ -1,6 +1,14 @@
 import { useState } from "react";
+import "./Form.css";
 
-const Form = ({ handleSubmit, fields, btnText, handleChange, formData }) => {
+const Form = ({
+  handleSubmit,
+  fields,
+  btnText,
+  handleChange,
+  formData,
+  className,
+}) => {
   const [formErrors, setFormErrors] = useState({});
 
   const validateForm = () => {
@@ -33,11 +41,13 @@ const Form = ({ handleSubmit, fields, btnText, handleChange, formData }) => {
   };
 
   return (
-    <div>
+    <div className="formContainer">
       <form onSubmit={handleSubmitWValidation}>
         {fields.map((field) => (
-          <div key={field.id}>
-            <label htmlFor={field.name}>{field.label}</label>
+          <div key={field.id} className="fromFields">
+            <label className={className} htmlFor={field.name}>
+              {field.label}
+            </label>
             <input
               key={field.name}
               type={field.type || "text"}
