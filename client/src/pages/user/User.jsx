@@ -58,7 +58,7 @@ const User = () => {
 
   return (
     <div className="container">
-      <img src="./images/water.webp" alt="water" />
+      <img src="./images/water.webp" alt="water" id="waterImg" />
       <div className="userForm">
         <h2 className="userPost">Join Blog Post!!!</h2>
         <Form
@@ -68,6 +68,20 @@ const User = () => {
           handleChange={handleChange}
           className="formlabel"
         />
+      </div>
+      <div className="section">
+        <img
+          className="creationImg"
+          src="./images/creation.jpg"
+          alt="creation"
+        />
+        <div className="creation">
+          <div className="createText">
+            <h3>Creation starts here!!!</h3>
+            <p>Your creativity knows no boundaries</p>
+          </div>
+          <div className="empty"></div>
+        </div>
       </div>
     </div>
   );
