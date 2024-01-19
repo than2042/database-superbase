@@ -42,9 +42,9 @@ const Form = ({
 
   return (
     <div className="formContainer">
-      <form onSubmit={handleSubmitWValidation}>
+      <form onSubmit={handleSubmitWValidation} encType="multipart/form-data">
         {fields.map((field) => (
-          <div key={field.id} className="fromFields">
+          <div key={field.id + field.name} className="fromFields">
             <label className={className} htmlFor={field.name}>
               {field.label}
             </label>

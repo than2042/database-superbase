@@ -1,5 +1,4 @@
 .post {
-  /* background: #f0f8ff; */
   height: 47rem;
 }
 .postContainer {
@@ -9,11 +8,18 @@
   margin: 0 auto;
 }
 
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .postItem {
   width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 1rem;
+  row-gap: 4rem;
   margin: 2rem auto;
 }
 
@@ -21,4 +27,20 @@
   width: 20vw;
   height: 15vh;
   padding: 1rem;
+}
+
+.title,
+.content,
+.time {
+  margin-bottom: 1rem;
+}
+
+#deleteBtn {
+  background: #ff6c53;
+  box-shadow: none;
+  color: #f0f8ff;
+}
+
+#deleteBtn:hover {
+  background: #d43f25;
 }

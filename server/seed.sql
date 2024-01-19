@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE  users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -9,6 +9,7 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
+    image BYTEA,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     users_id INTEGER REFERENCES users(id)
 )

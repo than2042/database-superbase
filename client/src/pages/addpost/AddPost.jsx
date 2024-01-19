@@ -9,21 +9,25 @@ const AddPost = () => {
   const [formData, setFromData] = useState({
     title: "",
     content: "",
+    image: null,
   });
 
   const fields = [
     { id: 1, name: "title", label: "Title: " },
     { id: 2, name: "content", label: "Content: " },
+    { id: 2, name: "image", label: "Image: ", type: "file" },
   ];
 
   useEffect(() => {
     handleGetPost();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e) => {
     setFromData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+        e.target.value === "file" ? e.target.files[0] : e.target.value,
     });
   };
 
@@ -37,8 +41,9 @@ const AddPost = () => {
     const newPost = {
       title: formData.title,
       content: formData.content,
+      image: formData.image,
     };
-    console.log(newPost, "data");
+
     const response = await fetch(`${APIURL}`, {
       method: "POST",
       headers: {
