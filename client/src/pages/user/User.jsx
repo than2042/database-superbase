@@ -58,7 +58,7 @@ const User = () => {
 
   return (
     <div className="container">
-      <img src="./images/water.webp" alt="water" />
+      <img src="./images/water.webp" alt="water" id="waterImg" />
       <div className="userForm">
         <h2 className="userPost">Join Blog Post!!!</h2>
         <Form

@@ -1,3 +1,7 @@
+#waterImg {
+  opacity: 0.4;
+}
+
 .userForm {
   position: absolute;
   top: 15rem;
