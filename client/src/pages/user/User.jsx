@@ -69,6 +69,20 @@ const User = () => {
           className="formlabel"
         />
       </div>
+      <div className="section">
+        <img
+          className="creationImg"
+          src="./images/creation.jpg"
+          alt="creation"
+        />
+        <div className="creation">
+          <div className="createText">
+            <h3>Creation starts here!!!</h3>
+            <p>Your creativity knows no boundaries</p>
+          </div>
+          <div className="empty"></div>
+        </div>
+      </div>
     </div>
   );
 };
