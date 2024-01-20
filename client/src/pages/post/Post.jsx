@@ -29,17 +29,14 @@ const Post = () => {
   };
 
   const handleSearch = async (e) => {
-    let searchItem =
-      e.target.value.toLowerCase() || e.target.value.toUpperCase();
+    let searchItem = e.target.value.toLowerCase();
     setSearch(searchItem);
 
     try {
       const response = await fetch(`${APIURL}?search=${searchItem}`);
       const data = await response.json();
-      const filteredPosts = data.filter(
-        (post) =>
-          post.title.toLowerCase().includes(search.toLowerCase()) ||
-          post.title.toUpperCase().includes(search.toUpperCase())
+      const filteredPosts = data.filter((post) =>
+        post.title.toLowerCase().includes(search.toLowerCase())
       );
       console.log(filteredPosts, "fi");
       setGetPost(filteredPosts);
@@ -90,9 +87,9 @@ const Post = () => {
           {getPost.map((post) => {
             return (
               <div className="card" key={post.id}>
-                <h2 className="title" key={post.title}>
+                <h3 className="title" key={post.title}>
                   {post.title}
-                </h2>
+                </h3>
                 <p className="content" key={post.content}>
                   {post.content}
                 </p>
