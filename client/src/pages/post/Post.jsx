@@ -48,6 +48,7 @@ const Post = () => {
   const handleDelete = async (postId) => {
     const response = await fetch(`${APIURL}/${postId}`, {
       method: "DELETE",
+      mode: "cors",
     });
     console.log(response, "res");
 
@@ -87,9 +88,9 @@ const Post = () => {
           {getPost.map((post) => {
             return (
               <div className="card" key={post.id}>
-                <h3 className="title" key={post.title}>
+                <h2 className="title" key={post.title}>
                   {post.title}
-                </h3>
+                </h2>
                 <p className="content" key={post.content}>
                   {post.content}
                 </p>

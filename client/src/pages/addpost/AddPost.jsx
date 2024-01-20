@@ -50,6 +50,7 @@ const AddPost = () => {
 
     const response = await fetch(`${APIURL}`, {
       method: "POST",
+      mode: "cors",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
