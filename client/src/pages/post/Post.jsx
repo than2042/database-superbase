@@ -5,7 +5,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
 
 const Post = () => {
-  const APIURL = "http://localhost:8080/posts";
+  const APIURL = "https://database-server-cjrd.onrender.com/posts";
   const [getPost, setGetPost] = useState([]);
   const [search, setSearch] = useState("");
   const [deletePost, setDeletePost] = useState(null);
@@ -98,8 +98,8 @@ const Post = () => {
                 </p>
                 <div>
                   <p onClick={() => handdleCountLikes(post.id)}>
-                    <FontAwesomeIcon icon={faThumbsUp} />
-                    Likes: {likes[post.id] || 0}
+                    <FontAwesomeIcon icon={faThumbsUp} /> {likes[post.id] || 0}{" "}
+                    Likes
                   </p>
 
                   {post.image && <img src={post.image} alt={post.title} />}

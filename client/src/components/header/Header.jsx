@@ -11,7 +11,7 @@ const Header = () => {
       <div className="linkContainer">
         <Link to="/">Home</Link>
         {/* <Link to="/about">About</Link> */}
-        <Link to="/post">Posts</Link>
+        <Link to="/posts">Posts</Link>
         <Link to="/add-post">Create Posts</Link>
       </div>
       <div className="icon">

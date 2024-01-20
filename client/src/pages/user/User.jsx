@@ -3,7 +3,7 @@ import Form from "../../components/form/Form";
 import "./User.css";
 
 const User = () => {
-  const APIURL = "http://localhost:8080/users";
+  const APIURL = "https://database-server-cjrd.onrender.com/users";
   const [getUser, setGetUser] = useState([]);
   const [formData, setFromData] = useState({
     name: "",

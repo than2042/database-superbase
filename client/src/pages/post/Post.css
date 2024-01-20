@@ -35,6 +35,17 @@
   margin-bottom: 1rem;
 }
 
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.svg-inline--fa,
+.fa-thumbs-up {
+  color: #255fd4;
+}
+
 #deleteBtn {
   width: 9rem;
   background: #ff6c53;

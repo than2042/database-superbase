@@ -3,7 +3,7 @@ import Form from "../../components/form/Form";
 import "./AddPost.css";
 
 const AddPost = () => {
-  let APIURL = "http://localhost:8080/posts";
+  let APIURL = "https://database-server-cjrd.onrender.com/posts";
 
   const [getPost, setGetPost] = useState([]);
   const [formData, setFromData] = useState({
@@ -67,7 +67,7 @@ const AddPost = () => {
   return (
     <div className="container addPost">
       <div className="addContainer">
-        <h2 className="addText">Post your new blog here!!!</h2>
+        <h3 className="addText">Post your new blog here!!!</h3>
         <Form
           handleSubmit={handleSubmit}
           fields={fields}

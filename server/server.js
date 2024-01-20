@@ -25,6 +25,7 @@ app.get("/users", async (req, res) => {
   res.json(result.rows);
 });
 
+// create user query
 app.post("/users", async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -36,19 +37,21 @@ app.post("/users", async (req, res) => {
   res.json(newUsers);
 });
 
+// search query
 app.get("/posts", async (req, res) => {
   const { search } = req.query;
 
   let query = "SELECT * FROM posts";
 
   if (search) {
-    query += "WHERE title ILIKE $1 id = $1";
+    query += "WHERE title ILIKE $1 AND id = $7";
   }
   const params = search ? [`%${search}%`] : [];
   const result = await db.query(query, params);
   res.json(result.rows);
 });
 
+// delete query
 app.delete("/posts/:id", async (req, res) => {
   const postId = req.params.id;
   const result = await db.query("DELETE FROM posts WHERE id = $1", [postId]);
@@ -60,16 +63,18 @@ app.get("/posts/:userid", async (req, res) => {
   res.json(result.rows);
 });
 
+// get all the post query
 app.get("/posts/:postsid", async (req, res) => {
   const postId = req.params.postsid;
   console.log("id", postId);
-  const result = await db.query("SELECT * FROM posts WHERE post.id = $1", [
+  const result = await db.query("SELECT * FROM posts WHERE posts.id = $1", [
     postId,
   ]);
   console.log("re", result.rows);
   res.json(result.rows);
 });
 
+// create image into db query
 app.post("/posts", upload.single("image"), async (req, res) => {
   const { title, content } = req.body;
   const image = req.file ? req.file.buffer.toString("base64") : null;
