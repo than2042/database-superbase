@@ -8,6 +8,7 @@ const Form = ({
   handleChange,
   formData,
   className,
+  defaultValue,
 }) => {
   const [formErrors, setFormErrors] = useState({});
 
@@ -42,7 +43,11 @@ const Form = ({
 
   return (
     <div className="formContainer">
-      <form onSubmit={handleSubmitWValidation} encType="multipart/form-data">
+      <form
+        id="userForm"
+        onSubmit={handleSubmitWValidation}
+        encType="multipart/form-data"
+      >
         {fields.map((field) => (
           <div key={field.id + field.name} className="fromFields">
             <label className={className} htmlFor={field.name}>
@@ -55,6 +60,7 @@ const Form = ({
               value={formData}
               onChange={handleChange}
               placeholder={field.name}
+              defaultValue={defaultValue[field.name]}
             />
             <p style={{ color: "red" }}>{formErrors[field.name]}</p>
           </div>

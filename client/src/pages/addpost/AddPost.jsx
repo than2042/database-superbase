@@ -9,7 +9,7 @@ const AddPost = () => {
   const [formData, setFromData] = useState({
     title: "",
     content: "",
-    image: null,
+    image: "",
   });
 
   const fields = [
@@ -21,7 +21,7 @@ const AddPost = () => {
   useEffect(() => {
     handleGetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [formData]);
 
   const handleChange = (e) => {
     setFromData({
@@ -29,6 +29,10 @@ const AddPost = () => {
       [e.target.name]:
         e.target.value === "file" ? e.target.files[0] : e.target.value,
     });
+  };
+  // reset form input
+  const resetForm = () => {
+    document.getElementById("userForm").reset();
   };
 
   const handleGetPost = async () => {
@@ -54,6 +58,7 @@ const AddPost = () => {
     });
     if (response.ok) {
       setGetPost([...getPost, newPost]);
+      resetForm();
     } else {
       console.log("failed to create user");
     }
@@ -69,6 +74,11 @@ const AddPost = () => {
           btnText="Add Post"
           handleChange={handleChange}
           className="formlabel"
+          defaultValue={{
+            name: "",
+            content: "",
+            image: "",
+          }} // default value to reset form input after submit
         />
       </div>
       <img className="addImage" src="./images/modern.webp" alt="modern" />

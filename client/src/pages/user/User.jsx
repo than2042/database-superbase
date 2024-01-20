@@ -19,7 +19,8 @@ const User = () => {
 
   useEffect(() => {
     handleGetUser();
-  }, []);
+    console.log("Current State:", formData);
+  }, [formData]);
 
   const handleChange = (e) => {
     setFromData({
@@ -34,13 +35,18 @@ const User = () => {
     setGetUser(data);
   };
 
+  // reset form value
+  const resetForm = () => {
+    document.getElementById("userForm").reset();
+  };
+
   const handleSubmit = async () => {
     const newUser = {
       name: formData.name,
       email: formData.email,
       password: formData.password,
     };
-    console.log(newUser, "data");
+
     const response = await fetch(`${APIURL}`, {
       method: "POST",
       headers: {
@@ -51,6 +57,7 @@ const User = () => {
     });
     if (response.ok) {
       setGetUser([...getUser, newUser]);
+      resetForm();
     } else {
       console.log("failed to create user");
     }
@@ -67,6 +74,11 @@ const User = () => {
           btnText="Submit"
           handleChange={handleChange}
           className="formlabel"
+          defaultValue={{
+            name: "",
+            email: "",
+            password: "",
+          }} // default value to reset form input after submit
         />
       </div>
       <div className="section">
