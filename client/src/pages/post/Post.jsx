@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { TextField, Button } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
 
 const Post = () => {
@@ -7,11 +9,18 @@ const Post = () => {
   const [getPost, setGetPost] = useState([]);
   const [search, setSearch] = useState("");
   const [deletePost, setDeletePost] = useState(null);
+  const [likes, setLikes] = useState({});
 
   useEffect(() => {
     handleGetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, deletePost]);
+
+  useEffect(() => {
+    // load likes form localstorage when the component mounts
+    const likeLocalStorage = JSON.parse(localStorage.getItem("likes")) || {};
+    setLikes(likeLocalStorage);
+  }, []);
 
   const handleGetPost = async () => {
     const response = await fetch(`${APIURL}`);
@@ -50,6 +59,17 @@ const Post = () => {
     }
   };
 
+  const handdleCountLikes = (postId) => {
+    // update likes on specific post
+    setLikes((prevLikes) => {
+      const newLikes = { ...prevLikes, [postId]: (prevLikes[postId] || 0) + 1 };
+      // save the updated likes to localstorage
+      localStorage.setItem("likes", JSON.stringify(newLikes));
+
+      return newLikes;
+    });
+  };
+
   return (
     <div className="container post">
       <div className="postContainer">
@@ -76,15 +96,22 @@ const Post = () => {
                 <p className="time" key={post.createdat}>
                   {post.createdat}
                 </p>
-                {post.image && <img src={post.image} alt={post.title} />}
-                <Button
-                  id="deleteBtn"
-                  onClick={() => handleDelete(post.id)}
-                  variant="outlined"
-                  color="error"
-                >
-                  Delete Post
-                </Button>
+                <div>
+                  <p onClick={() => handdleCountLikes(post.id)}>
+                    <FontAwesomeIcon icon={faThumbsUp} />
+                    Likes: {likes[post.id] || 0}
+                  </p>
+
+                  {post.image && <img src={post.image} alt={post.title} />}
+                  <Button
+                    id="deleteBtn"
+                    onClick={() => handleDelete(post.id)}
+                    variant="outlined"
+                    color="error"
+                  >
+                    Delete Post
+                  </Button>
+                </div>
               </div>
             );
           })}
