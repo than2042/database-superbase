@@ -9,13 +9,13 @@ const AddPost = () => {
   const [formData, setFromData] = useState({
     title: "",
     content: "",
-    image: "",
+    // image: "",
   });
 
   const fields = [
     { id: 1, name: "title", label: "Title: " },
     { id: 2, name: "content", label: "Content: " },
-    { id: 2, name: "image", label: "Image: ", type: "file" },
+    // { id: 2, name: "image", label: "Image: ", type: "file" },
   ];
 
   useEffect(() => {

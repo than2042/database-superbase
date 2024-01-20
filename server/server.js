@@ -44,7 +44,7 @@ app.get("/posts", async (req, res) => {
   let query = "SELECT * FROM posts";
 
   if (search) {
-    query += "WHERE title ILIKE $1 AND id = $7";
+    query += "WHERE title ILIKE $1 id = $1";
   }
   const params = search ? [`%${search}%`] : [];
   const result = await db.query(query, params);

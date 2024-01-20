@@ -29,14 +29,17 @@ const Post = () => {
   };
 
   const handleSearch = async (e) => {
-    let searchItem = e.target.value.toLowerCase();
+    let searchItem =
+      e.target.value.toLowerCase() || e.target.value.toUpperCase();
     setSearch(searchItem);
 
     try {
       const response = await fetch(`${APIURL}?search=${searchItem}`);
       const data = await response.json();
-      const filteredPosts = data.filter((post) =>
-        post.title.toLowerCase().includes(search.toLowerCase())
+      const filteredPosts = data.filter(
+        (post) =>
+          post.title.toLowerCase().includes(search.toLowerCase()) ||
+          post.title.toUpperCase().includes(search.toUpperCase())
       );
       console.log(filteredPosts, "fi");
       setGetPost(filteredPosts);
@@ -87,9 +90,9 @@ const Post = () => {
           {getPost.map((post) => {
             return (
               <div className="card" key={post.id}>
-                <h3 className="title" key={post.title}>
+                <h2 className="title" key={post.title}>
                   {post.title}
-                </h3>
+                </h2>
                 <p className="content" key={post.content}>
                   {post.content}
                 </p>
@@ -102,7 +105,7 @@ const Post = () => {
                     Likes
                   </p>
 
-                  {post.image && <img src={post.image} alt={post.title} />}
+                  {/* {post.image && <img src={post.image} alt={post.title} />} */}
                   <Button
                     id="deleteBtn"
                     onClick={() => handleDelete(post.id)}
