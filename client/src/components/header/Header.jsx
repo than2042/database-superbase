@@ -10,11 +10,11 @@ const Header = () => {
       {/* <img className="logo" src="./images/logo.svg" alt="logo" /> */}
       <div className="linkContainer">
         <Link to="/">Home</Link>
-        {/* <Link to="/about">About</Link> */}
         <Link to="/posts">Posts</Link>
         <Link to="/add-post">Create Posts</Link>
       </div>
       <div className="icon">
+        <Link to="/login">Login</Link>
         <Link to="/user">
           <span>
             <FontAwesomeIcon icon={faUser} />

@@ -26,8 +26,7 @@ const AddPost = () => {
   const handleChange = (e) => {
     setFromData({
       ...formData,
-      [e.target.name]:
-        e.target.value === "file" ? e.target.files[0] : e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
   // reset form input
