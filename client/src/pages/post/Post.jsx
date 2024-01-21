@@ -5,7 +5,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
 
 const Post = () => {
-  const APIURL = "http://localhost:8080/posts";
+  const APIURL = "https://database-server-cjrd.onrender.com/posts";
   const [getPost, setGetPost] = useState([]);
   const [search, setSearch] = useState("");
   const [deletePost, setDeletePost] = useState(null);
