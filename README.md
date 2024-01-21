@@ -40,8 +40,17 @@ Unsplash - for images
 # Reflection
 
 - The project was part of the bootcamp designed to reinforce React concepts and Backend server learned during the dedicated full stack.
-- One of the challenges I faced involved updating the count when a user clicked the "Buy" button for a specific store. Intially, the cookie count wasn't being updated accordingly; instead, the quantities for all stores were affected. The goal was to ensure that only the count for the selected store was updated.
-- Another challenge was to disable the "Buy" button when the cookie count was insufficient to make a purchase from the store. Initially, the disabling mechanism was not function as intended, allowing users to click the 'Buy' button even when the cookie count was less then 20.
-- I have improved the game UI and adjused the design approach to transform the Cookie Clicker game into a more engaging and visually appealing user interface.
+- I have achieved to build full stack web application using following tech stack
+  - React, CSS, Express, Cors, PostgreSQL, Superbase
+- There are a few challenges working on full stack development project
+  - Search function does not work properly
+  - need to understand how to connect the relation between users and login
+  - need to understand the server errors when its crash
 
 # User Story
+
+🐿️ As a user, I want to be able to create new posts and add them to the page
+🐿️ As a user, I want to be able to assign a category to each post
+🐿️ As a user, I want to be able to view all posts added on the page and the category they're in
+🐿️ As a user, I want to be able to view all posts in a specific category by visiting a dedicated page for that category
+🐿️ As a user, I want to be able to add new categories
