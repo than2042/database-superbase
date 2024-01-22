@@ -42,9 +42,12 @@ app.get("/posts", async (req, res) => {
   let query = "SELECT * FROM posts";
 
   if (search) {
-    query += "WHERE title ILIKE $1 id = $1";
+    query += " WHERE title ILIKE $1";
   }
   const params = search ? [`%${search}%`] : [];
+
+  console.log("query", query);
+  console.log("params", params);
   const result = await db.query(query, params);
   res.json(result.rows);
 });
