@@ -37,6 +37,11 @@ app.post("/users", async (req, res) => {
 });
 
 app.get("/posts", async (req, res) => {
+  const result = await db.query("SELECT * FROM posts");
+  res.json(result.rows);
+});
+
+app.get("/posts", async (req, res) => {
   const { search } = req.query;
 
   let query = "SELECT * FROM posts";

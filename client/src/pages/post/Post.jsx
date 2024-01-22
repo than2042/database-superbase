@@ -5,7 +5,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
 
 const Post = () => {
-  const APIURL = "https://database-server-cjrd.onrender.com/posts";
+  const APIURL = "https://database-server-cjrd.onrender.com//posts";
   const [getPost, setGetPost] = useState([]);
   const [search, setSearch] = useState("");
   const [deletePost, setDeletePost] = useState(null);
@@ -14,7 +14,7 @@ const Post = () => {
   useEffect(() => {
     handleGetPost();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, deletePost]);
+  }, [search, deletePost, getPost]);
 
   useEffect(() => {
     // load likes form localstorage when the component mounts
@@ -28,6 +28,7 @@ const Post = () => {
     setGetPost(data);
   };
 
+  // search post currently not shown on browser but it shows in console.log
   const handleSearch = async (e) => {
     let searchItem = e.target.value.toLowerCase();
     setSearch(searchItem);
@@ -38,13 +39,14 @@ const Post = () => {
       const filteredPosts = data.filter((post) =>
         post.title.toLowerCase().includes(search.toLowerCase())
       );
-      console.log(filteredPosts, "fi");
+      console.log(filteredPosts, "filt");
       setGetPost(filteredPosts);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
   };
 
+  // delete post
   const handleDelete = async (postId) => {
     const response = await fetch(`${APIURL}/${postId}`, {
       method: "DELETE",
