@@ -6,7 +6,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="footerContainer">
-      <p className="footerText">@thanthan2024</p>
+      <p className="footerText">&copy;thanthan2024</p>
       <Link to="https://en-gb.facebook.com/">
         <FontAwesomeIcon icon={faFacebook} />
       </Link>
