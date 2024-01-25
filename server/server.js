@@ -93,3 +93,5 @@ app.post("/posts", upload.single("image"), async (req, res) => {
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`);
 });
+
+// just for imformation after sever down I use chatGPT to debug in term of time I copy and replace it, remove my old code
